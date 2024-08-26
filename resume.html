@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&display=swap" rel="stylesheet">
+    <title>Resume - Eugene Arciga</title>
+    <link rel="shortcut icon" href="assets/favlogo.png" type="image/x-icon">
+    
+</head>
+<body class="h-screen bg-[#e5e7eb] grid place-items-center">
+    
+    <div id="resume-content" class="bg-white p-8 w-[50rem]">
+        <div class="pb-2">
+            <p class="font-semibold text-lg">Eugene Arciga</p>
+            <p class="text-sm">St. Jude</p>
+            <p class="text-sm">Concepcion Tarlac, 2316</p>
+            <p class="text-sm">09123456789</p>
+            <a href="#" class="text-blue-500">arcigaeugene3@gmail.com</a>
+            <p>
+                <a href="https://www.linkedin.com/login" class="text-blue-500">LinkedIn Profile |</a>
+                <a href="" class="text-blue-500">GitHub Profile |</a>
+                <a href="index.html" class="text-blue-500">Portfolio Website</a>
+            </p>
+        </div>
+
+        <div class="">
+            <h1 class="text-xl font-bold my-5 border-b-2">Objective</h1>
+            <p class="text-sm ml-5">Motivated and detail-oriented Computer Science student with a passion for full-stack development and UI/UX design. Seeking a position as a Junior Web Developer where I can apply my skills in front-end and back-end technologies to create user-centric and responsive web applications.
+            </p>
+        </div>
+
+        <div class="">
+            <h1 class="text-xl font-bold my-5 border-b-2">Education</h1>
+           <div class="grid grid-cols-2 gap-x-10">
+                <div>
+                    <p class="font-semibold ml-5">Concepcion Holy Cross College</p>
+                    <p class="font-sans italic ml-5">Bachelor of Science in Computer Science</p>
+                </div>
+                <p class="font-sans place-self-center">Concepcion, Tarlac</p>
+           </div>
+           <div class="grid grid-cols-2 gap-x-10">
+                <div>
+                    <p class="font-semibold ml-5">Benigno S. Aquino National High School</p>
+                    <p class="font-sans italic ml-5">Computer System Servicing</p>
+                </div>
+                <p class="font-sans place-self-center">Concepcion, Tarlac</p>
+           </div>
+        </div>
+
+        <div class="skills">
+            <h1 class="text-xl font-bold my-5 border-b-2">Skills</h1>
+            
+            <p class="text-sm ml-5"><span class="font-semibold text-base">Programming Languages:</span> Python, Java, JavaScript, HTML/CSS</p>
+            <p class="text-sm ml-5"><span class="font-semibold text-base">Frameworks/Libraries:</span> React, Angular, Django</p>
+            <p class="text-sm ml-5"><span class="font-semibold text-base">Tools:</span> Git, Docker, Jenkins, Figma, Adobe XD</p>
+            <p class="text-sm ml-5"><span class="font-semibold text-base">Other:</span> UI/UX Design, Responsive Web Design, Database Management, Agile Methodologies</p>
+
+        </div>
+
+        <div>
+            <h1 class="text-xl font-bold my-5 border-b-2">Certifications</h1>
+
+            <p class="text-sm ml-5"><span class="font-semibold text-base">Certified Fullstack Developer</span> - Concepcion Holy Cross College, June 2026</p>
+        </div>
+
+    </div>
+
+    <button id="download-btn" class="bg-[#27374D] p-3 rounded text-white font-semibold">Download Resume</button>
+
+    <script>
+        document.getElementById('download-btn').addEventListener('click', function () {
+            // Get the HTML content of the resume
+            const resumeContent = document.getElementById('resume-content').outerHTML;
+
+            // Call the download function
+            downloadFile(resumeContent, 'resume.html', 'text/html');
+        });
+
+        function downloadFile(content, fileName, contentType) {
+            const blob = new Blob([content], { type: contentType });
+            const a = document.createElement('a');
+            const url = URL.createObjectURL(blob);
+            a.href = url;
+            a.download = fileName;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+    </script>
+
+</body>
+</html>
